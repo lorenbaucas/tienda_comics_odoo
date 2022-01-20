@@ -1,0 +1,216 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="tienda_comics_odoo.tienda_list_view">
+      <field name="name">tienda_comics_odoo.tienda.view.tree</field>
+      <field name="model">tienda_comics_odoo.tienda</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="calle"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.ui.view" id="tienda_comics_odoo.tienda_search_view">
+      <field name="name">tienda_comics_odoo.tienda.view.search</field>
+      <field name="model">tienda_comics_odoo.tienda</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="calle"/>
+          <group>
+            <filter name="group_by_calle" string="calle" context="{'gropup_by':'calle'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="tienda_comics_odoo.tienda_form_view">
+      <field name="name">tienda_comics_odoo.tienda.view.form</field>
+      <field name="model">tienda_comics_odoo.tienda</field>
+      <field name="arch" type="xml">
+        <form string="Información tienda">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Titulo <field name="name" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="calle" placeholder="Calle"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="tienda_comics_odoo.tienda_action_window">
+      <field name="name">Tienda</field>
+      <field name="res_model">tienda_comics_odoo.tienda</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="tienda_comics_odoo" id="tienda_comics_odoo.menu_root"/>
+    <menuitem name="Tiendas" id="tienda_comics_odoo.menu_tienda" parent="tienda_comics_odoo.menu_root"/>
+    <menuitem name="Lista" id="tienda_comics_odoo.menu_tienda_list" parent="tienda_comics_odoo.menu_tienda"
+              action="tienda_comics_odoo.tienda_action_window"/>
+
+     <!--Model 2-->
+
+    <record model="ir.ui.view" id="tienda_comics_odoo.comic_list_view">
+      <field name="name">tienda_comics_odoo.comic.view.tree</field>
+      <field name="model">tienda_comics_odoo.comic</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="isbn"/>
+          <field name="precio"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.ui.view" id="tienda_comics_odoo.comic_search_view">
+      <field name="name">tienda_comics_odoo.comic.view.search</field>
+      <field name="model">tienda_comics_odoo.comic</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="isbn"/>
+          <field name="precio"/>
+          <group>
+            <filter name="group_by_isbn" string="isbn" context="{'gropup_by':'isbn'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="tienda_comics_odoo.comic_form_view">
+      <field name="name">tienda_comics_odoo.comic.view.form</field>
+      <field name="model">tienda_comics_odoo.comic</field>
+      <field name="arch" type="xml">
+        <form string="Información comic">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Nombre <field name="name" placeholder="Nombre"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="isbn" placeholder="ISBN"/>
+                <field name="precio" placeholder="Precio"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="tienda_comics_odoo.comic_action_window">
+      <field name="name">Comic</field>
+      <field name="res_model">tienda_comics_odoo.comic</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="tienda_comics_odoo" id="tienda_comics_odoo.menu_root"/>
+    <menuitem name="Comics" id="tienda_comics_odoo.menu_comic" parent="tienda_comics_odoo.menu_root"/>
+    <menuitem name="Lista" id="tienda_comics_odoo.menu_comic_list" parent="tienda_comics_odoo.menu_comic"
+              action="tienda_comics_odoo.comic_action_window"/>
+
+
+    <!-- Modelo 3 -->
+    <record model="ir.ui.view" id="tienda_comics_odoo.cliente_list_view">
+          <field name="name">tienda_comics_odoo.cliente.view.tree</field>
+          <field name="model">tienda_comics_odoo.cliente</field>
+          <field name="arch" type="xml">
+            <tree>
+              <field name="name"/>
+              <field name="dni"/>
+            </tree>
+          </field>
+        </record>
+
+
+    <!-- actions opening views on models -->
+        <record model="ir.ui.view" id="tienda_comics_odoo.cliente_search_view">
+          <field name="name">tienda_comics_odoo.cliente.view.search</field>
+          <field name="model">tienda_comics_odoo.cliente</field>
+          <field name="arch" type="xml">
+            <search>
+              <field name="name"/>
+              <field name="dni"/>
+              <group>
+                <filter name="group_by_name" string="name" context="{'gropup_by':'name'}" />
+              </group>
+            </search>
+          </field>
+        </record>
+
+
+        <!-- form -->
+
+        <record model="ir.ui.view" id="tienda_comics_odoo.cliente_form_view">
+          <field name="name">tienda_comics_odoo.cliente.view.form</field>
+          <field name="model">tienda_comics_odoo.cliente</field>
+          <field name="arch" type="xml">
+            <form string="Información cliente">
+              <sheet>
+                <div class="oe_title">
+                  <h1>
+                    Nombre <field name="name" placeholder="Nombre"/>
+                  </h1>
+                </div>
+                <group>
+                  <group>
+                    <separator string="Datos"/>
+                    <field name="dni" placeholder="DNI"/>
+                  </group>
+                </group>
+              </sheet>
+            </form>
+          </field>
+        </record>
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="tienda_comics_odoo.cliente_action_window">
+          <field name="name">Cliente</field>
+          <field name="res_model">tienda_comics_odoo.cliente</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="tienda_comics_odoo" id="tienda_comics_odoo.menu_root"/>
+        <menuitem name="Clientes" id="tienda_comics_odoo.menu_cliente" parent="tienda_comics_odoo.menu_root"/>
+        <menuitem name="Lista" id="tienda_comics_odoo.menu_cliente_list" parent="tienda_comics_odoo.menu_cliente"
+                  action="tienda_comics_odoo.cliente_action_window"/>
+  </data>
+</odoo>

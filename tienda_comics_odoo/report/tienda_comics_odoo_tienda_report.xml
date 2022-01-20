@@ -1,0 +1,26 @@
+<odoo>
+    <record id="tienda_comics_odoo.tienda_report" model="ir.actions.report">
+        <field name="name"> Informe de tiendas</field>
+        <field name="model">tienda_comics_odoo.tienda</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tienda_comics_odoo.tienda_report_view</field>
+        <field name="report_file">tienda_comics_odoo.tienda_report</field>
+        <field name="binding_model_id" ref="model_tienda_comics_odoo_tienda"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="tienda_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Tiendas </h1><br />
+                <t t-foreach="docs" t-as="tienda">
+                    <ul>
+                        <li>    Nombre: <span t-field="tienda.name" /></li>
+                        <li>    Calle: <span t-field="tienda.calle" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
